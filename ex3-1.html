@@ -37,9 +37,13 @@ do {
 		rate = parseFloat(rate);
 		if (isNaN(rate)) {
 			alert(enterNumberMsg);
-		}
+		} else if (rate < 0) {					//check at stack overflow on why this condition is failing
+			alert("Enter a rate more than 0, but 15 or less.");
+		} else if (rate > 15) {
+			alert("Enter a rate more than 0, but 15 or less.");
+		}		
 	}
-	while (isNaN(rate));
+	while (isNaN(rate) || (rate < 0) || (rate > 15));
 	do {
 		numYears = prompt("Enter the number of years: ", 10);
 		numYears = parseInt(numYears);
