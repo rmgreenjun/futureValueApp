@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Ch3 Exer3-1 Future Value Application</title>
+	<!--<script src="ex3-1.js"></script>-->
+	
+<script>
+//var entry;
+var investment;
+var rate;
+var numYears;
+var futureValue;
+var calcAnother;
+var enterNumberMsg = "Please enter a number.";
+//var getUserInfo = [];
+//getUserInfo[0] = investment;
+//getUserInfo[1] = rate;
+//getUserInfo[2] = numYears;
+
+
+//get & validate user inputs
+do {
+	do {
+		investment = prompt("Enter your investment amount: xxxxx.xx", 10000.00);
+		investment = parseFloat(investment);
+		if (isNaN(investment)) {
+			alert(enterNumberMsg);
+		}
+	}
+	while (isNaN(investment));
+
+	do {
+		rate = prompt("Enter the interest rate: xx.x", 6.5);
+		rate = parseFloat(rate);
+		if (isNaN(rate)) {
+			alert(enterNumberMsg);
+		}
+	}
+	while (isNaN(rate));
+	do {
+		numYears = prompt("Enter the number of years: ", 10);
+		numYears = parseInt(numYears);
+		if (isNaN(numYears)) {
+			alert(enterNumberMsg);
+		}
+	} 
+	while (isNaN(numYears));
+	
+	//calculate future value with for loop
+	futureValue = investment;
+	for (var i = 1; i <= numYears; i++) {
+			futureValue += (futureValue * rate / 100);
+		}
+		futureValue = parseInt(futureValue);
+		
+		//display data
+		document.write("<h1>The Future Value Application</h1>");
+		document.write("Investment amount: " + investment + "<br>");
+		document.write("Interest rate: " + rate + "<br>");
+		document.write("Number of Years: " + numYears + "<br><br>");
+		document.write("Future Value: " + futureValue + "<br><br>");
+
+	calcAnother = prompt("Do you want to calculate another Future Value?", "yes or no");
+}
+while (calcAnother == "yes" || calcAnother == "y");
+
+</script>
+
+</head>
+
+<body>
+	
+</body>
+
+</html>
